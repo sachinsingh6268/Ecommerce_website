@@ -1,0 +1,848 @@
+{% extends 'shop/basic.html' %}
+{% block title %} home {% endblock %}
+{% load static %}
+{% block css %} {% static 'shop/css/index.css' %} {% endblock %}
+
+{% block body %}
+
+
+<div class="corousel">
+    <h1>{{allProducts.0.0.0.category}}</h1>
+    <div class="shop-item">
+        <div class="card1 fade">
+            {% for product in allProducts.0.0|slice:"0:" %}
+            <div class="card-part">
+                <img src="/media/{{ product.image }}" alt="books">
+                <div class="cardbody">
+                 <h3 class="card-title" id="Namepr{{product.id}}">{{product.product_name}}</h3>
+                    <p class="card-text">{{product.desc|slice:"0:53"}}...</p>
+
+                    <span id="divpr{{product.id}}">
+                        <button id="pr{{product.id}}" class="cart">Add To Cart</button>
+                    </span>
+
+                    <!-- {% comment %} <a href="/shop/products/{{product.id}}"><button id="qv{{product.id}}"
+                            class="cart">Quick View</button></a> {% endcomment %} -->
+
+                    <a href="/shop/products/{{product.id}}" id="qv{{product.id}}" class="">Quick View </a>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        </div>
+        <div class="card1 fade">
+            {% endif %}
+            {% if forloop.last %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <i id="previous1" onclick="show_img1(-1)" class="fa-solid fa-angle-left"></i>
+    <i id="next1" onclick="show_img1(1)" class="fa-solid fa-angle-right"></i>
+
+    <div class="dots">
+        {% for index in allProducts.0.1 %}
+        <span class="dot1"></span>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+<div class="corousel">
+    <h1>{{allProducts.1.0.0.category}}</h1>
+    <div class="shop-item">
+        <div class="card2 fade">
+            {% for product in allProducts.1.0|slice:"0:" %}
+            <div class="card-part">
+                <img src="/media/{{ product.image }}" alt="books">
+                <div class="cardbody">
+                    <h3 class="card-title">{{product.product_name}}</h3>
+                    <p class="card-text">{{product.desc}}</p>
+                    <button id="pr{{product.id}}" class="cart">Add To Cart</button>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        </div>
+        <div class="card2 fade">
+            {% endif %}
+            {% if forloop.last %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <i id="previous2" onclick="show_img2(-1)" class="fa-solid fa-angle-left"></i>
+    <i id="next2" onclick="show_img2(1)" class="fa-solid fa-angle-right"></i>
+
+    <div class="dots">
+        {% for index in allProducts.1.1 %}
+        <span class="dot2"></span>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+<div class="corousel">
+    <h1>{{allProducts.2.0.0.category}}</h1>
+    <div class="shop-item">
+        <div class="card3 fade">
+            {% for product in allProducts.2.0|slice:"0:" %}
+            <div class="card-part">
+                <img src="/media/{{ product.image }}" alt="books">
+                <div class="cardbody">
+                    <h3 class="card-title">{{product.product_name}}</h3>
+                    <p class="card-text">{{product.desc}}</p>
+                    <a href="#" class="btn">Add To Cart</a>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        </div>
+        <div class="card3 fade">
+            {% endif %}
+            {% if forloop.last %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <i id="previous3" onclick="show_img3(-1)" class="fa-solid fa-angle-left"></i>
+    <i id="next3" onclick="show_img3(1)" class="fa-solid fa-angle-right"></i>
+
+    <div class="dots">
+        {% for index in allProducts.2.1 %}
+        <span class="dot3"></span>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+<div class="corousel">
+    <h1>{{allProducts.3.0.0.category}}</h1>
+    <div class="shop-item">
+        <div class="card4 fade">
+            {% for product in allProducts.3.0|slice:"0:" %}
+            <div class="card-part">
+                <img src="/media/{{ product.image }}" alt="books">
+                <div class="cardbody">
+                    <h3 class="card-title">{{product.product_name}}</h3>
+                    <p class="card-text">{{product.desc}}</p>
+                    <a href="#" class="btn">Add To Cart</a>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        </div>
+        <div class="card4 fade">
+            {% endif %}
+            {% if forloop.last %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <i id="previous4" onclick="show_img4(-1)" class="fa-solid fa-angle-left"></i>
+    <i id="next4" onclick="show_img4(1)" class="fa-solid fa-angle-right"></i>
+
+    <div class="dots">
+        {% for index in allProducts.3.1 %}
+        <span class="dot4"></span>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+<div class="corousel">
+    <h1>{{allProducts.4.0.0.category}}</h1>
+    <div class="shop-item">
+        <div class="card5 fade">
+            {% for product in allProducts.4.0|slice:"0:" %}
+            <div class="card-part">
+                <img src="/media/{{ product.image }}" alt="books">
+                <div class="cardbody">
+                    <h3 class="card-title">{{product.product_name}}</h3>
+                    <p class="card-text">{{product.desc}}</p>
+                    <a href="#" class="btn">Add To Cart</a>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        </div>
+        <div class="card5 fade">
+            {% endif %}
+            {% if forloop.last %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <i id="previous5" onclick="show_img5(-1)" class="fa-solid fa-angle-left"></i>
+    <i id="next5" onclick="show_img5(1)" class="fa-solid fa-angle-right"></i>
+
+    <div class="dots">
+        {% for index in allProducts.4.1 %}
+        <span class="dot5"></span>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+<div class="corousel">
+    <h1>{{allProducts.5.0.0.category}}</h1>
+    <div class="shop-item">
+        <div class="card6 fade">
+            {% for product in allProducts.5.0|slice:"0:" %}
+            <div class="card-part">
+                <img src="/media/{{ product.image }}" alt="books">
+                <div class="cardbody">
+                    <h3 class="card-title">{{product.product_name}}</h3>
+                    <p class="card-text">{{product.desc}}</p>
+                    <a href="#" class="btn">Add To Cart</a>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        </div>
+        <div class="card6 fade">
+            {% endif %}
+            {% if forloop.last %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <i id="previous6" onclick="show_img6(-1)" class="fa-solid fa-angle-left"></i>
+    <i id="next6" onclick="show_img6(1)" class="fa-solid fa-angle-right"></i>
+
+    <div class="dots">
+        {% for index in allProducts.5.1 %}
+        <span class="dot6"></span>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+<div class="corousel">
+    <h1>{{allProducts.6.0.0.category}}</h1>
+    <div class="shop-item">
+        <div class="card7 fade">
+            {% for product in allProducts.6.0|slice:"0:" %}
+            <div class="card-part">
+                <img src="/media/{{ product.image }}" alt="books">
+                <div class="cardbody">
+                    <h3 class="card-title">{{product.product_name}}</h3>
+                    <p class="card-text">{{product.desc}}</p>
+                    <a href="#" class="btn">Add To Cart</a>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        </div>
+        <div class="card7 fade">
+            {% endif %}
+            {% if forloop.last %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <i id="previous7" onclick="show_img7(-1)" class="fa-solid fa-angle-left"></i>
+    <i id="next7" onclick="show_img7(1)" class="fa-solid fa-angle-right"></i>
+
+    <div class="dots">
+        {% for index in allProducts.6.1 %}
+        <span class="dot7"></span>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+<div class="corousel">
+    <h1>{{allProducts.7.0.0.category}}</h1>
+    <div class="shop-item">
+        <div class="card8 fade">
+            {% for product in allProducts.7.0|slice:"0:" %}
+            <div class="card-part">
+                <img src="/media/{{ product.image }}" alt="books">
+                <div class="cardbody">
+                    <h3 class="card-title">{{product.product_name}}</h3>
+                    <p class="card-text">{{product.desc}}</p>
+                    <a href="#" class="btn">Add To Cart</a>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        </div>
+        <div class="card8 fade">
+            {% endif %}
+            {% if forloop.last %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <i id="previous8" onclick="show_img8(-1)" class="fa-solid fa-angle-left"></i>
+    <i id="next8" onclick="show_img8(1)" class="fa-solid fa-angle-right"></i>
+
+    <div class="dots">
+        {% for index in allProducts.7.1 %}
+        <span class="dot8"></span>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+<div class="corousel">
+    <h1>{{allProducts.8.0.0.category}}</h1>
+    <div class="shop-item">
+        <div class="card9 fade">
+            {% for product in allProducts.8.0|slice:"0:" %}
+            <div class="card-part">
+                <img src="/media/{{ product.image }}" alt="books">
+                <div class="cardbody">
+                    <h3 class="card-title">{{product.product_name}}</h3>
+                    <p class="card-text">{{product.desc}}</p>
+                    <a href="#" class="btn">Add To Cart</a>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        </div>
+        <div class="card9 fade">
+            {% endif %}
+            {% if forloop.last %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <i id="previous9" onclick="show_img9(-1)" class="fa-solid fa-angle-left"></i>
+    <i id="next9" onclick="show_img9(1)" class="fa-solid fa-angle-right"></i>
+
+    <div class="dots">
+        {% for index in allProducts.8.1 %}
+        <span class="dot9"></span>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+<div class="corousel">
+    <h1>{{allProducts.9.0.0.category}}</h1>
+    <div class="shop-item">
+        <div class="card10 fade">
+            {% for product in allProducts.9.0|slice:"0:" %}
+            <div class="card-part">
+                <img src="/media/{{ product.image }}" alt="books">
+                <div class="cardbody">
+                    <h3 class="card-title">{{product.product_name}}</h3>
+                    <p class="card-text">{{product.desc}}</p>
+                    <a href="#" class="btn">Add To Cart</a>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        </div>
+        <div class="card10 fade">
+            {% endif %}
+            {% if forloop.last %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <i id="previous10" onclick="show_img10(-1)" class="fa-solid fa-angle-left"></i>
+    <i id="next10" onclick="show_img10(1)" class="fa-solid fa-angle-right"></i>
+
+    <div class="dots">
+        {% for index in allProducts.9.1 %}
+        <span class="dot10"></span>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+<div class="corousel">
+    <h1>{{allProducts.10.0.0.category}}</h1>
+    <div class="shop-item">
+        <div class="card11 fade">
+            {% for product in allProducts.10.0|slice:"0:" %}
+            <div class="card-part">
+                <img src="/media/{{ product.image }}" alt="books">
+                <div class="cardbody">
+                    <h3 class="card-title">{{product.product_name}}</h3>
+                    <p class="card-text">{{product.desc}}</p>
+                    <a href="#" class="btn">Add To Cart</a>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        </div>
+        <div class="card11 fade">
+            {% endif %}
+            {% if forloop.last %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <i id="previous11" onclick="show_img11(-1)" class="fa-solid fa-angle-left"></i>
+    <i id="next11" onclick="show_img11(1)" class="fa-solid fa-angle-right"></i>
+
+    <div class="dots">
+        {% for index in allProducts.10.1 %}
+        <span class="dot11"></span>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}
+
+<script src="{% block script %} {% static 'shop/javascript/index.js' %} {% endblock %}"></script>
+
+
+
+<!-- <div class="corousel">
+            <div class="shop-items">
+                <div class="card fade">
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/books.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/books.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/books.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade">
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/camera.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/camera.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/camera.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade">
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/clothes.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/clothes.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/clothes.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade">
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/googles.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/googles.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/googles.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade">
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/home_appliances.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/home_appliances.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/home_appliances.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade">
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/jewellery.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/jewellery.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/jewellery.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade">
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/mobile.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/mobile.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/mobile.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade">
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/spices.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/spices.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/spices.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade">
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/vegetables.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/vegetables.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/vegetables.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade">
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/watch.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/watch.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card-part">
+                        <img src="{% static '/shop/img/corousel/watch.jpg' %}" width="100%" alt="books">
+                        <div class="cardbody">
+                            <h3 class="card-title">Card Title</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                                numquam
+                                fugiat,
+                                ipsa aliquam excepturi quibusdam blanditiis facilis modi nisi magnam sit! Possimus aut
+                                totam
+                                minima
+                                nobis facere temporibus odit aliquam!</p>
+                            <a href="#" class="btn">Go Somewhere</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div> -->

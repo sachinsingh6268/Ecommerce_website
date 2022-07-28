@@ -1,0 +1,117 @@
+{% extends 'shop/basic.html' %}
+
+{% load static %}
+
+{% block title %} checkout-SmartCart {% endblock %}
+<link rel="stylesheet" href="{% block css %} {% static '/shop/css/checkout.css' %} {% endblock %}">
+
+{% block body %}
+
+<div class="container">
+     <div class="itemsInCart container-part-1">
+          <h2>Step 1 - Review Your Cart </h2>
+          <ul id="itemsInCheckout">
+
+          </ul>
+     </div>
+      
+     <div class="customerDetails container-part-2">
+          <h2>Step 2 - Enter Billing Address and Other Details</h2>
+          <form action="/shop/checkout/" method="post">
+               {% csrf_token %}
+               
+               <!-- this span is created so that we can use it to access order id from views.py and it can be further accessed for showing the customer when placing the order -->
+               <span class="id" id="{{id}}"></span>
+                
+               <input type="hidden" id="items_json" name="items_json">
+               <div class="row row1">
+                    <div class="form-item">
+                         <label for="name">Name:</label>
+                         <input type="text" id="name" name="name" required placeholder="Enter Name">
+                    </div>
+
+                    <div class="form-item">
+                         <label for="email">Email:</label>
+                         <input type="email" id="email" name="email" required placeholder="Enter Email">
+                    </div>
+               </div>
+
+               <div class="form-item">
+                    <label for="address">Address:</label>
+                    <textarea name="address" id="address" required cols="30" rows="2"
+                         placeholder="Enter Your Delivery Address"></textarea>
+               </div>
+
+               <div class="form-item">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" required id="phone" name="phone" placeholder="Enter Your Contact">
+               </div>
+               <div class="form-item">
+                    <label for="state">State/UT:</label>
+                    <select name="state" required id="state">
+                         <option value="" selected disabled hidden>--Select State--</option>
+                         <option value="AP">Andhra Prasesh</option>
+                         <option value="AR">Arunachal Pradesh</option>
+                         <option value="AS">Assam</option>
+                         <option value="BR">Bihar</option>
+                         <option value="CG">Chhattisgarh</option>
+                         <option value="GA">Goa</option>
+                         <option value="GJ">Gujarat</option>
+                         <option value="HR">Haryana</option>
+                         <option value="HP">Himanchal Pradesh</option>
+                         <option value="JK">Jammu and Kashmir</option>
+                         <option value="JH">Jharkhand</option>
+                         <option value="KA">Karnataka</option>
+                         <option value="KL">Kerala</option>
+                         <option value="MP">Madhya Pradesh</option>
+                         <option value="MH">Maharashtra</option>
+                         <option value="MN">Manipur</option>
+                         <option value="ML">Meghalaya</option>
+                         <option value="MZ">Mizoram</option>
+                         <option value="NL">Nagaland</option>
+                         <option value="OR">Orissa</option>
+                         <option value="PB">Punjab</option>
+                         <option value="RJ">Rajasthan</option>
+                         <option value="SK">Sikkim</option>
+                         <option value="TN">Tamil Nadu</option>
+                         <option value="TN">Tamil Nadu</option>
+                         <option value="TR">Tripura</option>
+                         <option value="UK">Uttarakhand</option>
+                         <option value="UP">Uttar Pradesh</option>
+                         <option value="WB">West Bengal</option>
+                         <option value="TN">Tamil Nadu</option>
+                         <option value="TR">Tripura</option>
+                         <option value="AN">Andaman and Nicobar Islands</option>
+                         <option value="CH">Chandigarh</option>
+                         <option value="DH">Dadra and Nagar Haveli</option>
+                         <option value="DD">Daman and Diu</option>
+                         <option value="DL">Delhi</option>
+                         <option value="LD">Lakshadweep</option>
+                         <option value="PY">Pondicherry</option>
+
+                    </select>
+
+               </div>
+               <div class="row row2">
+                    <div class="form-item">
+                         <label for="city">City:</label>
+                         <input type="text" required id="city" name="city" placeholder="City Name">
+                    </div>
+
+                    <div class="form-item">
+                         <label for="pincode">Pincode:</label>
+                         <input type="number" id="pincode" name="pincode" placeholder="Pincode">
+                    </div>
+               </div>
+
+
+               <div class="form-item">
+                    <button type="submit" class="submit_button" id="{{order_done}}">Place Order</button>
+               </div>
+          </form>
+     </div>
+</div>
+
+{% endblock %}
+
+{% block script %} {% static '/shop/javascript/checkout.js' %} {% endblock %}

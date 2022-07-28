@@ -1,0 +1,96 @@
+{% extends 'shop/basic.html' %}
+{% load static %}
+{% block title %} Tracker-SmartCart {% endblock %}
+
+
+
+<link rel="stylesheet" href="{% block css %} {% static '/shop/css/tracker.css' %} {% endblock %}">
+
+{% block body %}
+
+<div class="container">
+     <div class="itemsInCart container-part-1">
+          <h2>Smartcart Tracker:&nbsp;Enter your Order Id and email to track the order </h2>
+
+          <!-- we will update the form with the help of jquery and ajax so that without updating page we can show the order updates -->
+          <form action="#" id="trackerForm">
+               {% csrf_token %}
+                
+               <div class="row row1">
+                    <div class="form-item">
+                         <label for="name">Order Id</label>
+                         <input type="text" id="order_id" name="order_id" required placeholder="Enter Order Id">
+                    </div>
+
+                    <div class="form-item">
+                         <label for="email">Email:</label>
+                         <input type="email" id="email" name="email" required placeholder="Enter Email">
+                    </div>
+               </div> <button type="submit" class="submit_button" id="{{order_done}}">Track Order</button>
+      
+     </form>
+</div>
+
+<div class="customerDetails container-part-2">
+     <h2>Your Order Status</h2>
+     
+     <ul id="itemsInTracker">
+          <p>Enter your order id and email, Then click on <strong> Track Order</strong> to get details of your order</p>
+     </ul>
+</div>
+</div>
+
+<script>
+
+     // HERE OUR AIM IS TO SHOW THE UPDATES OF THE ORDER IF A CUSTOMER ENTERS VALID order id AND email without refreshing the page(so we will use ajax for that)
+     $(document).ready(function(){
+          // if anything is present in the update already, then first empty it bcz we will be using append here
+          $('#trackerForm').submit(function(event){
+          $('#itemsInTracker').empty();
+
+
+          // now we will complete the form data
+          var formData = {
+               'order_id':$('input[name=order_id]').val(),
+               'email': $('input[name = email]').val(),
+               
+               // it's send to verify the authenticity of the user who is sending the data
+               'csrfmiddlewaretoken': $('input[name = csrfmiddlewaretoken]').val(),
+          }
+
+          // now we will process this form using jQuery as
+          $.ajax({
+               type:'POST',
+               url: '/shop/tracker/',
+               data: formData,
+               encode: true
+          })
+
+          // now we will run a function 'done' to complete the process of the form and after the processing we can run a funtion to fetch the data to show up the updates
+          .done(function(data){ // here data is the data that is send by 'views.py'
+               // console.log(data);
+               let updates = JSON.parse(data);
+               if(updates.length >0)
+               {
+               for (let i=0;i<updates.length;i++)
+               {
+                    let text = updates[i]['text'];
+                    let date = updates[i]['date'];
+                    $('#itemsInTracker').append(`<li><p>${text}</p> <span>${date}</span></li>`);
+
+               }
+          }
+          else{
+               $('#itemsInTracker').append('<p style="color:red">Sorry, We are not able to fetch data corresponding to these details. Make sure that you have entered the correct credentials</p>')
+          }
+          })
+
+          event.preventDefault(); // it's run to prevent the default behaviour of the form
+     
+     })
+})
+
+</script>
+{% endblock %}
+
+ 

@@ -1,0 +1,22 @@
+{% extends 'shop/basic.html' %}
+{% load static %}
+{% block title %} {{product.product_name}} - SmartCart {% endblock %}
+{% block css %} {% static 'shop/css/productView.css' %} {% endblock %}
+{% block body %}
+
+       <div class="container">
+          <div class="product_img">
+               <img src="/media/{{product.image}}" alt="">
+               <div class="buttons">
+                    <button>Add to Cart</button>
+                    <button>Buy Now</button>
+               </div>
+          </div>
+          <div class="product_info">
+               <h1>{{product.product_name}}</h1>
+               <p class='price'><b>Rs. {{product.price}}</b></p>
+               <p class="desc"><b>Description:</b> {{product.desc}}</p>
+          </div>
+       </div>
+
+{% endblock %}

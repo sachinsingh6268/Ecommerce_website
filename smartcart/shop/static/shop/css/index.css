@@ -1,0 +1,136 @@
+.corousel {
+    /* border: 2px solid black; */
+    width: 80%;
+    /* height: 60vh; */
+    display: flex;
+    margin: 2.5rem auto 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.shop-item{
+display: flex;
+margin-top: 5px;
+ 
+
+}
+
+ 
+
+ 
+
+.card1,.card2,.card3,.card4,.card5,.card6,.card7,.card8,.card9,.card10,.card11 {
+    display: none;
+     
+}
+.card-part{
+    width: 100%;
+    margin-left: 6px;
+    border: 1px solid rgba(148, 92, 92, 0.495);
+}
+.card-part img{
+    width:100%;
+    height:400px;
+    
+}
+
+.cardbody{
+    padding: 4px 1rem
+
+}
+
+.cardbody a{
+     
+    background-color: #d648e3;
+    /* border: 2px solid red; */
+    display: inline-block;
+    margin: 4px 0;
+    padding: 6px 10px;
+    border-radius: 5px;
+    transition: .4s ease;
+    font-weight: bold;
+
+}
+
+.cardbody a:hover{
+    color: #42f905;
+    
+}
+
+#previous1,#previous2,#previous3,#previous4,#previous5,#previous6,#previous7,#previous8,#previous9,#previous10,#previous11{
+    position: absolute;
+    top: 40%;
+    left: 0;
+    padding: 16px;
+    /* background-color: black; */
+    color: white;
+    transition: .6s ease;
+    font-weight: 900;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+
+}
+
+#next1,#next2,#next3,#next4,#next5,#next6,#next7,#next8,#next9,#next10,#next11{
+    position: absolute;
+    top: 40%;
+    right: 0;
+    padding: 16px;
+    /* background-color: black; */
+    color: white;
+    transition: .6s ease;
+    font-weight: 900;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+
+}
+
+#next1:hover,#previous1:hover ,#next2:hover ,#previous2:hover,#next3:hover ,#previous3:hover,#next4:hover ,#previous4:hover,#next5:hover ,#previous5:hover,#next6:hover,#previous6:hover,#next7:hover,#previous7:hover,#next8:hover ,#previous8:hover,#next9:hover ,#previous9:hover,#next10:hover ,#previous10:hover,#next11:hover ,#previous11:hover{
+    background-color: rgb(98, 95, 95);
+}
+
+
+.dots{
+    text-align: center;
+    margin: 2%;
+}
+
+.dot1,.dot2,.dot3,.dot4,.dot5,.dot6,.dot7,.dot8,.dot9,.dot10,.dot11{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #bbb;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+
+.active{
+    background-color: #5a5858;
+}
+
+.fade{
+    animation: fade 1.5s;
+}
+
+
+@keyframes fade {
+    from {
+        opacity:0.4 
+    }
+    to {
+        opacity: 1;
+    }
+    
+}
+
+@media (max-width:900px){
+    .corousel{
+        width: 90%;
+    }
+}

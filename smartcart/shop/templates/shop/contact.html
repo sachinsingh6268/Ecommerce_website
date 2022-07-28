@@ -1,0 +1,38 @@
+{% extends 'shop/basic.html' %}
+{% load static %}
+{% block title %} contact-SmartCart {% endblock %}
+{% block css %} {% static '/shop/css/contact.css' %} {% endblock %}
+
+
+
+{% block body %}
+
+<div class="container">
+     <h1>Contact Us</h1>
+     <form action="/shop/contact/" method="post">
+          {% csrf_token %}
+          <div class="form-item">
+               <label for="name">Name:</label>
+               <input type="text" required name='name' id='name' placeholder="Enter Your Name">
+          </div>
+          <div class="form-item">
+               <label for="email">Email:</label>
+               <input type="email" name='email' required id='email' placeholder="Your email address">
+          </div>
+          <div class="form-item">
+               <label for="phone">Phone Number:</label>
+               <input type="tel" name='phone' required id='phone' placeholder="Phone/Mobile">
+          </div>
+          <div class="form-item">
+               <label for="desc">How we can help you?</label>
+               <textarea name="desc" id="desc" cols="30" rows="8" placeholder="Love to hear from you"> </textarea>
+          </div>
+
+          <div class="form-item">
+               <button type="submit">Submit</button>
+          </div>
+     </form>
+</div>
+
+{% endblock %}
+{% block script %} {% static '/shop/javascript/contact.js' %} {% endblock %}

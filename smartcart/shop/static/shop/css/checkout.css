@@ -1,0 +1,120 @@
+.container{
+    width: 80%;
+    margin: auto;
+}
+
+.container-part-1{
+    margin: 1.5rem 0;
+     
+     
+}
+
+.container-part-2{
+    margin-top: 2.5rem;
+}
+
+#itemsInCheckout li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 10px 7px 5px;
+    color: blue;
+    font-weight: bold;
+    border: 1px solid gray;
+     
+    
+}
+
+#itemsInCheckout li span{
+    display: flex;
+    width: 1.7rem;
+    height: 1.7rem;
+    background: #4242eb;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 50%;
+}
+h2{
+    color: #2aae29;
+    margin-bottom: .7rem;
+}
+
+.row{
+    display: flex;
+    
+}
+
+.row .form-item{
+    width: 50%;
+    
+    
+}
+
+ 
+
+.form-item{
+    margin: 12px 1px;
+}
+
+ 
+ 
+label{
+    display: block;
+    padding-bottom: .2rem;
+    font-size: 1rem;
+    
+}
+
+input,textarea{
+    width: 100%;
+    padding: 4px;
+    font-size: 1.5rem;
+    border:2px solid gray;
+    outline: none;
+}
+
+button{
+    font-size: 1.5rem;
+    padding: 9px 32px;
+    outline: none;
+    border: 2px solid gray;
+    border-radius: 7px;
+    background: black;
+    color: white;
+    cursor: pointer;
+    transition: 1s ease;
+}
+
+button:hover{
+    color: rgb(39, 228, 196);
+}
+
+
+select{
+    width: 50%;
+    padding: 5px 12px;
+    outline: none;
+    border: 2px solid gray;
+}
+
+
+@media (max-width:650px){
+    .container{
+        width: 90%;
+        
+    }
+    select{
+        width: 100%;
+        
+    }
+    .row{
+        display: block;
+        
+    }
+    .row .form-item{
+        width: 100%;
+    }
+        
+    
+}
